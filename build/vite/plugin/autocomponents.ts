@@ -3,7 +3,7 @@
  * https://github.com/antfu/unplugin-vue-components
  */
 import Components from 'unplugin-vue-components/vite'
-import ViteComponents, { VantResolver } from 'unplugin-vue-components/resolvers'
+import { VantResolver } from 'unplugin-vue-components/resolvers'
 
 export function configAutoComponentsPlugin() {
 	return Components({

@@ -1,61 +1,60 @@
-
-
-
 🎉 基于 vite2 + Vue3.2 + TypeScript + pinia + mock + sass + vantUI + viewport 适配 + axios 封装 的基础模版
 
 [查看 demo](https://vite-vue3-h5-template.vercel.app/) 建议手机端查看
 
 # 前述
-* vuecli项目地址：https://github.com/ynzy/vue3-h5-template
-* vite-vue项目地址：https://github.com/ynzy/vite-vue3-h5-template
-* 一年前 vue3 刚出来没大会，用 vuecli 写了一个模版项目，文章地址：[基于Vue3+TypeScript+ Vue-Cli4.0构建手机端模板脚手架](https://juejin.cn/post/6931630327211229198)
-* 去年尤大新作 vite 登上了热门，利用下班时间，花了8个晚上，每个晚上写了 2-3 小时对我的模版项目进行了重构。
-* 用了 vite 的都说真香，到底有多香呢。我们先来看下重构后的开发启动速度，热更新速度，打包速度的对比吧
+
+- vuecli 项目地址：https://github.com/ynzy/vue3-h5-template
+- vite-vue 项目地址：https://github.com/ynzy/vite-vue3-h5-template
+- 一年前 vue3 刚出来没大会，用 vuecli 写了一个模版项目，文章地址：[基于 Vue3+TypeScript+ Vue-Cli4.0 构建手机端模板脚手架](https://juejin.cn/post/6931630327211229198)
+- 去年尤大新作 vite 登上了热门，利用下班时间，花了 8 个晚上，每个晚上写了 2-3 小时对我的模版项目进行了重构。
+- 用了 vite 的都说真香，到底有多香呢。我们先来看下重构后的开发启动速度，热更新速度，打包速度的对比吧
 
 # 原来 vuecli 项目和现在 vite-vue 项目开发/生产速度对比
 
 ## 开发启动速度对比
 
--   vue-cli
+- vue-cli
 
-    -   等了几秒 
-    
+  - 等了几秒
+
 ![vuecli开发启动速度.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8685bc5c4c364e9387d5b02d712820f7~tplv-k3u1fbpfcp-watermark.image?)
 
--   vite-vue
+- vite-vue
 
-    -   几乎没等待 
-    
+  - 几乎没等待
+
 ![vite开发启动速度.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24f9914377c14302ade61cc62dd41b5a~tplv-k3u1fbpfcp-watermark.image?)
 
--   总结：vite 启动速度 是 vue-cli 的 **5倍**！
+- 总结：vite 启动速度 是 vue-cli 的  **5 倍**！
 
 ## 开发热更新速度对比
 
--   vue-cli
+- vue-cli
 
-    -   需要重新编译文件 
-    
+  - 需要重新编译文件
+
 ![vuelciHMR热更新速度.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af25e09c8fd94134bea673e09b0c2d02~tplv-k3u1fbpfcp-watermark.image?)
 
--   vite-vue
+- vite-vue
 
-    -   几乎没有花时间，代码改了就生效了
-    
+  - 几乎没有花时间，代码改了就生效了
+
 ![viteHMR热更新速度.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3deeac46eb1448fba50550292dd31a9d~tplv-k3u1fbpfcp-watermark.image?)
 
--   总结：vite 即时生效
+- 总结：vite 即时生效
 
 ## 生产打包速度对比
 
--   vue-cli 
+- vue-cli
 
 ![vuecli打包速度.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73d50dc11382410ba895d6bfb3223156~tplv-k3u1fbpfcp-watermark.image?)
 
--   vite-vue 
+- vite-vue
 
 ![vite打包速度.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e2122b1c634b3bb4ef1f6e959abcb2~tplv-k3u1fbpfcp-watermark.image?)
--   总结：几乎没什么差别
+
+- 总结：几乎没什么差别
 
 # 项目介绍
 
@@ -99,6 +98,7 @@ pnpm preview  // 本地预览打包的项目
 - [√ Eslint + Prettier 统一开发规范](#prettier)
 - [√ husky + lint-staged 提交校验](#husky)
 - [√ 项目打包优化](#build)
+- [√ Jenkins CI/CD 持续集成部署](#jenkins)
 
 ## <span id="createVue">✅ 使用 create-vue 初始化项目 </span>
 
@@ -131,6 +131,7 @@ Vue.js - The Progressive JavaScript Framework
 ✔ Add Prettier for code formatting? …  Yes
 
 ```
+
 <br></details>
 
 - 初始化项目包含
@@ -143,8 +144,6 @@ Vue.js - The Progressive JavaScript Framework
   - Eslint
   - Prettier
   - @types/node // 识别 nodejs 内置模块
-
-
 
 [▲ 回顶部](#top)
 
@@ -164,11 +163,11 @@ vite v2.3.7 dev server running at:
 
 ```js
 export default defineConfig({
-  plugins: [vue()],
-  // 在文件中添加以下内容
-  server: {
-    host: '0.0.0.0'
-  }
+	plugins: [vue()],
+	// 在文件中添加以下内容
+	server: {
+		host: '0.0.0.0'
+	}
 })
 ```
 
@@ -253,35 +252,35 @@ interface ImportMeta {
 // config/env.development.ts
 // 本地环境配置
 export default {
-  env: 'development',
-  mock: true,
-  title: '开发',
-  baseUrl: 'http://localhost:9018', // 项目地址
-  baseApi: 'https://test.xxx.com/api', // 本地api请求地址,注意：如果你使用了代理，请设置成'/'
-  APPID: 'wx9790364d20b47d95',
-  APPSECRET: 'xxx',
-  $cdn: 'https://imgs.solui.cn'
+	env: 'development',
+	mock: true,
+	title: '开发',
+	baseUrl: 'http://localhost:9018', // 项目地址
+	baseApi: 'https://test.xxx.com/api', // 本地api请求地址,注意：如果你使用了代理，请设置成'/'
+	APPID: 'wx9790364d20b47d95',
+	APPSECRET: 'xxx',
+	$cdn: 'https://imgs.solui.cn'
 }
 ```
 
 ```ts
 // config/index.ts
 export interface IConfig {
-  env: string // 开发环境
-  mock?: string // mock数据
-  title: string // 项目title
-  baseUrl?: string // 项目地址
-  baseApi?: string // api请求地址
-  APPID?: string // 公众号appId  一般放在服务器端
-  APPSECRET?: string // 公众号appScript 一般放在服务器端
-  $cdn: string // cdn公共资源路径
+	env: string // 开发环境
+	mock?: string // mock数据
+	title: string // 项目title
+	baseUrl?: string // 项目地址
+	baseApi?: string // api请求地址
+	APPID?: string // 公众号appId  一般放在服务器端
+	APPSECRET?: string // 公众号appScript 一般放在服务器端
+	$cdn: string // cdn公共资源路径
 }
 const envMap = {}
 const globalModules = import.meta.globEager('./*.ts')
 Object.entries(globalModules).forEach(([key, value]) => {
-  // key.match(/\.\/env\.(\S*)\.ts/)
-  const name = key.replace(/\.\/env\.(.*)\.ts$/, '$1')
-  envMap[name] = value
+	// key.match(/\.\/env\.(\S*)\.ts/)
+	const name = key.replace(/\.\/env\.(.*)\.ts$/, '$1')
+	envMap[name] = value
 })
 
 // 根据环境引入不同配置
@@ -323,11 +322,11 @@ pnpm i -D sass
 
 ```html
 <style lang="scss">
-  /* global styles */
+	/* global styles */
 </style>
 
 <style lang="scss" scoped>
-  /* local styles */
+	/* local styles */
 </style>
 ```
 
@@ -341,12 +340,12 @@ pnpm i -D sass
 import { defineComponent } from 'vue'
 import classes from '@/styles/test.module.scss'
 export default defineComponent({
-  setup() {
-    console.log(classes)
-    return () => {
-      return <div class={`root  ${classes.moduleClass}`}>测试css-modules</div>
-    }
-  }
+	setup() {
+		console.log(classes)
+		return () => {
+			return <div class={`root  ${classes.moduleClass}`}>测试css-modules</div>
+		}
+	}
 })
 ```
 
@@ -384,8 +383,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from './router.config'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes
 })
 
 export default router
@@ -396,54 +395,54 @@ export default router
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/views/layouts/index.vue'
 export const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Home',
-    redirect: '/home',
-    meta: {
-      title: '首页',
-      keepAlive: false
-    },
-    component: Layout,
-    children: [
-      {
-        path: '/home',
-        name: 'Home',
-        component: () => import('@/views/Home.vue'),
-        meta: { title: '首页', keepAlive: false, showTab: true }
-      },
-      {
-        path: '/tsx',
-        name: 'Tsx',
-        component: () => import('@/test/demo'),
-        meta: { title: '测试tsx', keepAlive: false, showTab: true }
-      },
-      {
-        path: '/static',
-        name: 'Static',
-        component: () => import('@/test/testStatic.vue'),
-        meta: { title: '测试静态资源', keepAlive: false, showTab: true }
-      },
-      {
-        path: '/cssModel',
-        name: 'CssModel',
-        component: () => import('@/test/testCssModel'),
-        meta: { title: '测试css-model', keepAlive: false, showTab: true }
-      },
-      {
-        path: '/mockAxios',
-        name: 'MockAxios',
-        component: () => import('@/test/testMockAxios'),
-        meta: { title: '测试mock-axios', keepAlive: false, showTab: true }
-      },
-      {
-        path: '/pinia',
-        name: 'Pinia',
-        component: () => import('@/test/testPinia.vue'),
-        meta: { title: '测试pinia', keepAlive: false, showTab: true }
-      }
-    ]
-  }
+	{
+		path: '/',
+		name: 'Home',
+		redirect: '/home',
+		meta: {
+			title: '首页',
+			keepAlive: false
+		},
+		component: Layout,
+		children: [
+			{
+				path: '/home',
+				name: 'Home',
+				component: () => import('@/views/Home.vue'),
+				meta: { title: '首页', keepAlive: false, showTab: true }
+			},
+			{
+				path: '/tsx',
+				name: 'Tsx',
+				component: () => import('@/test/demo'),
+				meta: { title: '测试tsx', keepAlive: false, showTab: true }
+			},
+			{
+				path: '/static',
+				name: 'Static',
+				component: () => import('@/test/testStatic.vue'),
+				meta: { title: '测试静态资源', keepAlive: false, showTab: true }
+			},
+			{
+				path: '/cssModel',
+				name: 'CssModel',
+				component: () => import('@/test/testCssModel'),
+				meta: { title: '测试css-model', keepAlive: false, showTab: true }
+			},
+			{
+				path: '/mockAxios',
+				name: 'MockAxios',
+				component: () => import('@/test/testMockAxios'),
+				meta: { title: '测试mock-axios', keepAlive: false, showTab: true }
+			},
+			{
+				path: '/pinia',
+				name: 'Pinia',
+				component: () => import('@/test/testPinia.vue'),
+				meta: { title: '测试pinia', keepAlive: false, showTab: true }
+			}
+		]
+	}
 ]
 ```
 
@@ -507,28 +506,28 @@ import { defineStore } from 'pinia'
 import { useAppStore } from './app'
 
 export const useUserStore = defineStore({
-  id: 'user',
-  state: () => {
-    return {
-      name: '张三',
-      age: 18
-    }
-  },
-  getters: {
-    fullName: (state) => {
-      return state.name + '丰'
-    }
-  },
-  actions: {
-    updateState(data: any) {
-      this.$state = data
-      this.updateAppConfig()
-    },
-    updateAppConfig() {
-      const appStore = useAppStore()
-      appStore.setData('app-update')
-    }
-  }
+	id: 'user',
+	state: () => {
+		return {
+			name: '张三',
+			age: 18
+		}
+	},
+	getters: {
+		fullName: (state) => {
+			return state.name + '丰'
+		}
+	},
+	actions: {
+		updateState(data: any) {
+			this.$state = data
+			this.updateAppConfig()
+		},
+		updateAppConfig() {
+			const appStore = useAppStore()
+			appStore.setData('app-update')
+		}
+	}
 })
 ```
 
@@ -537,18 +536,18 @@ export const useUserStore = defineStore({
 import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore({
-  id: 'app',
-  state: () => {
-    return {
-      config: 'app'
-    }
-  },
-  actions: {
-    setData(data: any) {
-      console.log(data)
-      this.config = data
-    }
-  }
+	id: 'app',
+	state: () => {
+		return {
+			config: 'app'
+		}
+	},
+	actions: {
+		setData(data: any) {
+			console.log(data)
+			this.config = data
+		}
+	}
 })
 ```
 
@@ -569,19 +568,19 @@ const name = computed(() => userStore.name)
 const { age } = storeToRefs(userStore)
 
 const updateUserState = () => {
-  const { name, age } = userStore.$state
-  userStore.updateState({
-    name: name + 1,
-    age: age + 1
-  })
+	const { name, age } = userStore.$state
+	userStore.updateState({
+		name: name + 1,
+		age: age + 1
+	})
 }
 </script>
 <template>
-  <div>姓名：{{ name }}</div>
-  <div>年龄：{{ age }}</div>
-  <div>计算的名字：{{ userStore.fullName }}</div>
-  <div>app的config: {{ appStore.config }}</div>
-  <button @click="updateUserState">更新数据</button>
+	<div>姓名：{{ name }}</div>
+	<div>年龄：{{ age }}</div>
+	<div>计算的名字：{{ userStore.fullName }}</div>
+	<div>app的config: {{ appStore.config }}</div>
+	<button @click="updateUserState">更新数据</button>
 </template>
 
 <style lang="scss" scoped></style>
@@ -616,26 +615,25 @@ export default store
 
 ```ts
 export const useUserStore = defineStore({
-  id: 'user',
+	id: 'user',
 
-  state: () => {
-    return {
-      name: '张三'
-    }
-  },
+	state: () => {
+		return {
+			name: '张三'
+		}
+	},
 
-  // 开启数据缓存
-  persist: {
-    key: 'user',
-    storage: sessionStorage, // 数据存储位置，默认为 localStorage
-    paths: ['name'], // 用于部分持久化状态的点表示法路径数组，表示不会持久化任何状态（默认为并保留整个状态）
-    overwrite: true
-  }
+	// 开启数据缓存
+	persist: {
+		key: 'user',
+		storage: sessionStorage, // 数据存储位置，默认为 localStorage
+		paths: ['name'], // 用于部分持久化状态的点表示法路径数组，表示不会持久化任何状态（默认为并保留整个状态）
+		overwrite: true
+	}
 })
 ```
 
 [▲ 回顶部](#top)
-
 
 ## <span id="mock">✅ 使用 Mock 数据 </span>
 
@@ -658,17 +656,17 @@ const modules = import.meta.globEager('./**/*.ts')
 
 const mockModules: any[] = []
 Object.keys(modules).forEach((key) => {
-  if (key.includes('/_')) {
-    return
-  }
-  mockModules.push(...modules[key].default)
+	if (key.includes('/_')) {
+		return
+	}
+	mockModules.push(...modules[key].default)
 })
 
 /**
  * Used in a production environment. Need to manually import all modules
  */
 export function setupProdMockServer() {
-  createProdMockServer(mockModules)
+	createProdMockServer(mockModules)
 }
 ```
 
@@ -679,54 +677,54 @@ export function setupProdMockServer() {
 import { Recordable } from 'vite-plugin-mock'
 
 export function resultSuccess<T = Recordable>(result: T, { message = 'ok' } = {}) {
-  return {
-    code: 0,
-    result,
-    message,
-    type: 'success'
-  }
+	return {
+		code: 0,
+		result,
+		message,
+		type: 'success'
+	}
 }
 
 export function resultPageSuccess<T = any>(
-  page: number,
-  pageSize: number,
-  list: T[],
-  { message = 'ok' } = {}
+	page: number,
+	pageSize: number,
+	list: T[],
+	{ message = 'ok' } = {}
 ) {
-  const pageData = pagination(page, pageSize, list)
+	const pageData = pagination(page, pageSize, list)
 
-  return {
-    ...resultSuccess({
-      items: pageData,
-      total: list.length
-    }),
-    message
-  }
+	return {
+		...resultSuccess({
+			items: pageData,
+			total: list.length
+		}),
+		message
+	}
 }
 
 export function resultError(message = 'Request failed', { code = -1, result = null } = {}) {
-  return {
-    code,
-    result,
-    message,
-    type: 'error'
-  }
+	return {
+		code,
+		result,
+		message,
+		type: 'error'
+	}
 }
 
 export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]): T[] {
-  const offset = (pageNo - 1) * Number(pageSize)
-  const ret =
-    offset + Number(pageSize) >= array.length
-      ? array.slice(offset, array.length)
-      : array.slice(offset, offset + Number(pageSize))
-  return ret
+	const offset = (pageNo - 1) * Number(pageSize)
+	const ret =
+		offset + Number(pageSize) >= array.length
+			? array.slice(offset, array.length)
+			: array.slice(offset, offset + Number(pageSize))
+	return ret
 }
 
 export interface requestParams {
-  method: string
-  body: any
-  headers?: { authorization?: string }
-  query: any
+	method: string
+	body: any
+	headers?: { authorization?: string }
+	query: any
 }
 
 /**
@@ -734,7 +732,7 @@ export interface requestParams {
  *
  */
 export function getRequestToken({ headers }: requestParams): string | undefined {
-  return headers?.authorization
+	return headers?.authorization
 }
 ```
 
@@ -744,19 +742,19 @@ import { MockMethod } from 'vite-plugin-mock'
 import { resultError, resultSuccess, getRequestToken, requestParams } from '../_util'
 
 export default [
-  {
-    url: '/basic-api/getUserInfo',
-    method: 'get',
-    response: (request: requestParams) => {
-      console.log('----请求了getUserInfo---')
+	{
+		url: '/basic-api/getUserInfo',
+		method: 'get',
+		response: (request: requestParams) => {
+			console.log('----请求了getUserInfo---')
 
-      return resultSuccess({
-        name: '章三',
-        age: 40,
-        sex: '男'
-      })
-    }
-  }
+			return resultSuccess({
+				name: '章三',
+				age: 40,
+				sex: '男'
+			})
+		}
+	}
 ] as MockMethod[]
 ```
 
@@ -764,23 +762,23 @@ export default [
 
 ```ts
 export default ({ mode, command }: ConfigEnv): UserConfigExport => {
-  const isBuild = command === 'build'
-  return defineConfig({
-    plugins: [
-      viteMockServe({
-        ignore: /^_/, // 正则匹配忽略的文件
-        mockPath: 'mock', // 设置mock.ts 文件的存储文件夹
-        localEnabled: true, // 设置是否启用本地 xxx.ts 文件，不要在生产环境中打开它.设置为 false 将禁用 mock 功能
-        prodEnabled: true, // 设置生产环境是否启用 mock 功能
-        watchFiles: true, // 设置是否监视mockPath对应的文件夹内文件中的更改
-        // 代码注入
-        injectCode: ` 
+	const isBuild = command === 'build'
+	return defineConfig({
+		plugins: [
+			viteMockServe({
+				ignore: /^_/, // 正则匹配忽略的文件
+				mockPath: 'mock', // 设置mock.ts 文件的存储文件夹
+				localEnabled: true, // 设置是否启用本地 xxx.ts 文件，不要在生产环境中打开它.设置为 false 将禁用 mock 功能
+				prodEnabled: true, // 设置生产环境是否启用 mock 功能
+				watchFiles: true, // 设置是否监视mockPath对应的文件夹内文件中的更改
+				// 代码注入
+				injectCode: ` 
           import { setupProdMockServer } from '../mock/_createProductionServer';
           setupProdMockServer();
         `
-      })
-    ]
-  })
+			})
+		]
+	})
 }
 ```
 
@@ -841,117 +839,117 @@ import router from '@/router'
 import config from '@/config'
 
 const service = axios.create({
-  baseURL: config.baseApi + '/api', // url = base url + request url
-  timeout: 5000,
-  withCredentials: false // send cookies when cross-domain requests
-  // headers: {
-  // 	// clear cors
-  // 	'Cache-Control': 'no-cache',
-  // 	Pragma: 'no-cache'
-  // }
+	baseURL: config.baseApi + '/api', // url = base url + request url
+	timeout: 5000,
+	withCredentials: false // send cookies when cross-domain requests
+	// headers: {
+	// 	// clear cors
+	// 	'Cache-Control': 'no-cache',
+	// 	Pragma: 'no-cache'
+	// }
 })
 
 // Request interceptors
 service.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
-    // 加载动画
-    if (config.loading) {
-      Toast.loading({
-        message: '加载中...',
-        forbidClick: true
-      })
-    }
-    // 在此处添加请求头等，如添加 token
-    // if (store.state.token) {
-    // config.headers['Authorization'] = `Bearer ${store.state.token}`
-    // }
-    return config
-  },
-  (error: any) => {
-    Promise.reject(error)
-  }
+	(config: AxiosRequestConfig) => {
+		// 加载动画
+		if (config.loading) {
+			Toast.loading({
+				message: '加载中...',
+				forbidClick: true
+			})
+		}
+		// 在此处添加请求头等，如添加 token
+		// if (store.state.token) {
+		// config.headers['Authorization'] = `Bearer ${store.state.token}`
+		// }
+		return config
+	},
+	(error: any) => {
+		Promise.reject(error)
+	}
 )
 
 // Response interceptors
 service.interceptors.response.use(
-  async (response: AxiosResponse) => {
-    // await new Promise(resovle => setTimeout(resovle, 3000))
-    Toast.clear()
-    const res = response.data
-    if (res.code !== 0) {
-      // token 过期
-      if (res.code === 401) {
-        // 警告提示窗
-        return
-      }
-      if (res.code == 403) {
-        Dialog.alert({
-          title: '警告',
-          message: res.msg
-        }).then(() => {})
-        return
-      }
-      // 若后台返回错误值，此处返回对应错误对象，下面 error 就会接收
-      return Promise.reject(new Error(res.msg || 'Error'))
-    } else {
-      // 注意返回值
-      return response.data
-    }
-  },
-  (error: any) => {
-    Toast.clear()
-    if (error && error.response) {
-      switch (error.response.status) {
-        case 400:
-          error.message = '请求错误(400)'
-          break
-        case 401:
-          error.message = '未授权,请登录(401)'
-          break
-        case 403:
-          error.message = '拒绝访问(403)'
-          break
-        case 404:
-          error.message = `请求地址出错: ${error.response.config.url}`
-          break
-        case 405:
-          error.message = '请求方法未允许(405)'
-          break
-        case 408:
-          error.message = '请求超时(408)'
-          break
-        case 500:
-          error.message = '服务器内部错误(500)'
-          break
-        case 501:
-          error.message = '服务未实现(501)'
-          break
-        case 502:
-          error.message = '网络错误(502)'
-          break
-        case 503:
-          error.message = '服务不可用(503)'
-          break
-        case 504:
-          error.message = '网络超时(504)'
-          break
-        case 505:
-          error.message = 'HTTP版本不受支持(505)'
-          break
-        default:
-          error.message = `连接错误: ${error.message}`
-      }
-    } else {
-      if (error.message == 'Network Error') {
-        error.message == '网络异常，请检查后重试！'
-      }
-      error.message = '连接到服务器失败，请联系管理员'
-    }
-    Toast(error.message)
-    // store.auth.clearAuth()
-    store.dispatch('clearAuth')
-    return Promise.reject(error)
-  }
+	async (response: AxiosResponse) => {
+		// await new Promise(resovle => setTimeout(resovle, 3000))
+		Toast.clear()
+		const res = response.data
+		if (res.code !== 0) {
+			// token 过期
+			if (res.code === 401) {
+				// 警告提示窗
+				return
+			}
+			if (res.code == 403) {
+				Dialog.alert({
+					title: '警告',
+					message: res.msg
+				}).then(() => {})
+				return
+			}
+			// 若后台返回错误值，此处返回对应错误对象，下面 error 就会接收
+			return Promise.reject(new Error(res.msg || 'Error'))
+		} else {
+			// 注意返回值
+			return response.data
+		}
+	},
+	(error: any) => {
+		Toast.clear()
+		if (error && error.response) {
+			switch (error.response.status) {
+				case 400:
+					error.message = '请求错误(400)'
+					break
+				case 401:
+					error.message = '未授权,请登录(401)'
+					break
+				case 403:
+					error.message = '拒绝访问(403)'
+					break
+				case 404:
+					error.message = `请求地址出错: ${error.response.config.url}`
+					break
+				case 405:
+					error.message = '请求方法未允许(405)'
+					break
+				case 408:
+					error.message = '请求超时(408)'
+					break
+				case 500:
+					error.message = '服务器内部错误(500)'
+					break
+				case 501:
+					error.message = '服务未实现(501)'
+					break
+				case 502:
+					error.message = '网络错误(502)'
+					break
+				case 503:
+					error.message = '服务不可用(503)'
+					break
+				case 504:
+					error.message = '网络超时(504)'
+					break
+				case 505:
+					error.message = 'HTTP版本不受支持(505)'
+					break
+				default:
+					error.message = `连接错误: ${error.message}`
+			}
+		} else {
+			if (error.message == 'Network Error') {
+				error.message == '网络异常，请检查后重试！'
+			}
+			error.message = '连接到服务器失败，请联系管理员'
+		}
+		Toast(error.message)
+		// store.auth.clearAuth()
+		store.dispatch('clearAuth')
+		return Promise.reject(error)
+	}
 )
 
 export default service
@@ -970,23 +968,23 @@ export default service
 ```ts
 import request from '@/utils/request'
 export interface IResponseType<P = {}> {
-  code: number
-  msg: string
-  data: P
+	code: number
+	msg: string
+	data: P
 }
 interface IUserInfo {
-  id: string
-  avator: string
+	id: string
+	avator: string
 }
 interface IError {
-  code: string
+	code: string
 }
 export const fetchUserInfo = () => {
-  return request<IResponseType<IUserInfo>>({
-    url: '/user/info',
-    method: 'get',
-    loading: true
-  })
+	return request<IResponseType<IUserInfo>>({
+		url: '/user/info',
+		method: 'get',
+		loading: true
+	})
 }
 ```
 
@@ -996,33 +994,43 @@ export const fetchUserInfo = () => {
 
 ```js
 onMounted(async () => {
-  try {
-    let res = await fetchUserInfo()
-    console.log(res)
-  } catch (error) {
-    console.log(error)
-  }
+	try {
+		let res = await fetchUserInfo()
+		console.log(res)
+	} catch (error) {
+		console.log(error)
+	}
 })
 ```
 
 [▲ 回顶部](#top)
 
 ## <span id="vueRequest">✅ vue-request 管理接口 </span>
-* 文档：https://cn.attojs.org/
-* 使用 vue-request 可以更方便地管理接口
+
+- 文档：https://cn.attojs.org/
+- 使用 vue-request 可以更方便地管理接口
+
 ### 1. 安装依赖
+
 ```js
 pnpm i vue-request
 ```
-### 2. 使用axios来获取数据，vue-request进行管理
+
+### 2. 使用 axios 来获取数据，vue-request 进行管理
+
 ```js
-// axios 
+// axios
 export const fetchUserInfo = () => {
-  return request<IResponseType<IUserInfo>>({
-    url: '/user/info',
-    method: 'get',
-    loading: true
-  })
+	return (
+		request <
+		IResponseType <
+		IUserInfo >>
+			{
+				url: '/user/info',
+				method: 'get',
+				loading: true
+			}
+	)
 }
 // vue-request
 const { data: res, run } = useRequest(fetchUserInfo)
@@ -1030,37 +1038,47 @@ const { data: res, run } = useRequest(fetchUserInfo)
 await run()
 console.log(res.value?.data)
 ```
+
 ### 3. 使用 vue-request 进行定时请求
+
 ```js
 // axios
 export const getTimingData = () => {
-  return request({
-    url: '/getTimingData',
-    method: 'GET'
-  })
+	return request({
+		url: '/getTimingData',
+		method: 'GET'
+	})
 }
 
 // vue-request
 const { data: resultData, run } = useRequest(getTimingData, {
-    pollingInterval: 5000,
-    onSuccess: (data) => {
-      console.log('onSuccess', data)
-    }
-  })
+	pollingInterval: 5000,
+	onSuccess: (data) => {
+		console.log('onSuccess', data)
+	}
+})
 ```
+
 ## <span id="unplugin">✅ unplugin-xxx 自动导入 </span>
-* 参考资料：https://juejin.cn/post/7012446423367024676
-* 自定义组件自动引入 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components#readme)
-* vue3等插件 hooks 自动引入 [unplugin-auto-import/vite](https://github.com/antfu/unplugin-auto-import)
-* message, notification 等引入样式自动引入 [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)
-* eslint插件 [vue-global-api](https://github.com/antfu/vue-global-api)
+
+- 参考资料：https://juejin.cn/post/7012446423367024676
+- 自定义组件自动引入 [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components#readme)
+- vue3 等插件 hooks 自动引入 [unplugin-auto-import/vite](https://github.com/antfu/unplugin-auto-import)
+- message, notification 等引入样式自动引入 [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)
+- eslint 插件 [vue-global-api](https://github.com/antfu/vue-global-api)
+
 ### unplugin-vue-components
-* 自动导入流行库组件和自定义组件
+
+- 自动导入流行库组件和自定义组件
+
 1. 安装依赖
+
 ```js
 pnpm i -D unplugin-vue-components
 ```
+
 2. 修改 vite.config.ts
+
 ```js
 Components({
   // 指定组件位置，默认是src/components
@@ -1077,59 +1095,72 @@ Components({
   // include:[]
 }),
 ```
+
 ### unplugin-auto-import
-* 自动导入vue3相关api
+
+- 自动导入 vue3 相关 api
+
 1. 安装依赖
+
 ```js
 pnpm i -D unplugin-auto-import
 ```
+
 2. 配置 vite.config.ts
+
 ```js
 AutoImport({
-  include: [
-    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-    /\.vue$/,
-    /\.vue\?vue/, // .vue
-    /\.md$/ // .md
-  ],
-  imports: ['vue', 'vue-router', '@vueuse/core'],
-  // 可以选择auto-import.d.ts生成的位置，使用ts建议设置为'src/auto-import.d.ts'
-  dts: 'src/auto-import.d.ts',
-  // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
-  // 生成全局声明文件，给eslint用
-  eslintrc: {
-    enabled: true, // Default `false`
-    filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-    globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-  }
+	include: [
+		/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+		/\.vue$/,
+		/\.vue\?vue/, // .vue
+		/\.md$/ // .md
+	],
+	imports: ['vue', 'vue-router', '@vueuse/core'],
+	// 可以选择auto-import.d.ts生成的位置，使用ts建议设置为'src/auto-import.d.ts'
+	dts: 'src/auto-import.d.ts',
+	// eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+	// 生成全局声明文件，给eslint用
+	eslintrc: {
+		enabled: true, // Default `false`
+		filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+		globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+	}
 })
 ```
+
 3. 配置 eslintrc
-```js
-// .eslintrc.js
-module.exports = { 
-  /* ... */
-  extends: [
-    // ...
-    './.eslintrc-auto-import.json',
-  ],
-}
-```
-### vue-global-api 
-* 在页面没有引入的情况下，使用unplugin-auto-import/vite来自动引入hooks，在项目中肯定会报错的，这时候需要在eslintrc.js中的extends引入vue-global-api，这个插件是vue3hooks的,其他自己找找，找不到的话可以手动配置一下globals
-1. 安装依赖
-```js
-pnpm i -D vue-global-api
-```
-2. 配置 eslintrc
+
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: [
-    'vue-global-api'
-  ]
-};
+	/* ... */
+	extends: [
+		// ...
+		'./.eslintrc-auto-import.json'
+	]
+}
 ```
+
+### vue-global-api
+
+- 在页面没有引入的情况下，使用 unplugin-auto-import/vite 来自动引入 hooks，在项目中肯定会报错的，这时候需要在 eslintrc.js 中的 extends 引入 vue-global-api，这个插件是 vue3hooks 的,其他自己找找，找不到的话可以手动配置一下 globals
+
+1. 安装依赖
+
+```js
+pnpm i -D vue-global-api
+```
+
+2. 配置 eslintrc
+
+```js
+// .eslintrc.js
+module.exports = {
+	extends: ['vue-global-api']
+}
+```
+
 ## <span id="vant">✅ VantUI 组件按需加载 </span>
 
 - 文档：https://vant-contrib.gitee.io/vant/v3/#/zh-CN/quickstart
@@ -1150,12 +1181,12 @@ import vue from '@vitejs/plugin-vue'
 import styleImport, { VantResolve } from 'vite-plugin-style-import'
 
 export default {
-  plugins: [
-    vue(),
-    styleImport({
-      resolves: [VantResolve()]
-    })
-  ]
+	plugins: [
+		vue(),
+		styleImport({
+			resolves: [VantResolve()]
+		})
+	]
 }
 ```
 
@@ -1168,11 +1199,11 @@ import { Button, Cell, CellGroup, Icon, Tabbar, TabbarItem, Image as VanImage } 
 const plugins = [Button, Icon, Cell, CellGroup, Tabbar, TabbarItem, VanImage]
 
 export const vantPlugins = {
-  install: function (vm: VM) {
-    plugins.forEach((item) => {
-      vm.component(item.name, item)
-    })
-  }
+	install: function (vm: VM) {
+		plugins.forEach((item) => {
+			vm.component(item.name, item)
+		})
+	}
 }
 ```
 
@@ -1206,9 +1237,9 @@ app.use(vantPlugins)
 import { Button } from 'vant'
 
 export default {
-  render() {
-    return <Button />
-  }
+	render() {
+		return <Button />
+	}
 }
 ```
 
@@ -1231,26 +1262,26 @@ pnpm i -D postcss-px-to-viewport autoprefixer
 
 ```js
 module.exports = {
-  plugins: {
-    // 用来给不同的浏览器自动添加相应前缀，如-webkit-，-moz-等等
-    autoprefixer: {
-      overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
-    },
-    'postcss-px-to-viewport': {
-      unitToConvert: 'px', // 要转化的单位
-      viewportWidth: 375, // UI设计稿的宽度
-      unitPrecision: 6, // 转换后的精度，即小数点位数
-      propList: ['*'], // 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
-      viewportUnit: 'vw', // 指定需要转换成的视窗单位，默认vw
-      fontViewportUnit: 'vw', // 指定字体需要转换成的视窗单位，默认vw
-      selectorBlackList: ['wrap'], // 指定不转换为视窗单位的类名，
-      minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
-      mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
-      replace: true, // 是否转换后直接更换属性值
-      exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
-      landscape: false // 是否处理横屏情况
-    }
-  }
+	plugins: {
+		// 用来给不同的浏览器自动添加相应前缀，如-webkit-，-moz-等等
+		autoprefixer: {
+			overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
+		},
+		'postcss-px-to-viewport': {
+			unitToConvert: 'px', // 要转化的单位
+			viewportWidth: 375, // UI设计稿的宽度
+			unitPrecision: 6, // 转换后的精度，即小数点位数
+			propList: ['*'], // 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
+			viewportUnit: 'vw', // 指定需要转换成的视窗单位，默认vw
+			fontViewportUnit: 'vw', // 指定字体需要转换成的视窗单位，默认vw
+			selectorBlackList: ['wrap'], // 指定不转换为视窗单位的类名，
+			minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
+			mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
+			replace: true, // 是否转换后直接更换属性值
+			exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
+			landscape: false // 是否处理横屏情况
+		}
+	}
 }
 ```
 
@@ -1279,16 +1310,16 @@ module.exports = {
 
 ```scss
 .fixIphonex {
-  padding-bottom: $safe-bottom !important;
-  &::after {
-    content: '';
-    position: fixed;
-    bottom: 0 !important;
-    left: 0;
-    height: calc(#{$safe-bottom} + 1px);
-    width: 100%;
-    background: #ffffff;
-  }
+	padding-bottom: $safe-bottom !important;
+	&::after {
+		content: '';
+		position: fixed;
+		bottom: 0 !important;
+		left: 0;
+		height: calc(#{$safe-bottom} + 1px);
+		width: 100%;
+		background: #ffffff;
+	}
 }
 ```
 
@@ -1305,7 +1336,7 @@ import { config } from '@/config'
  * @param title
  */
 export const setDocumentTitle = (title?: string) => {
-  document.title = title || config.title
+	document.title = title || config.title
 }
 ```
 
@@ -1313,8 +1344,8 @@ router/index.ts 使用
 
 ```ts
 router.beforeEach((to, from, next) => {
-  setDocumentTitle(to.meta.title as string)
-  next()
+	setDocumentTitle(to.meta.title as string)
+	next()
 })
 ```
 
@@ -1323,6 +1354,7 @@ router.beforeEach((to, from, next) => {
 ## <span id="jssdk">✅ 配置 Jssdk </span>
 
 1.  安装：
+
 ```bash
 yarn add weixin-js-sdk
 ```
@@ -1332,11 +1364,11 @@ yarn add weixin-js-sdk
 由于苹果浏览器只识别第一次进入的路由，所以需要先处理下配置使用的 url
 
 - router.ts
-此处的jssdk配置仅供演示，正常业务逻辑需要配合后端去写
+  此处的 jssdk 配置仅供演示，正常业务逻辑需要配合后端去写
+
 ```ts
 
 ```
-
 
 ```ts
 import { defineStore } from 'pinia'
@@ -1371,12 +1403,13 @@ export const useAuthStore = defineStore({
 	}
 }
 ```
-由于window没有entryUrl变量，需要声明文件进行声明
+
+由于 window 没有 entryUrl 变量，需要声明文件进行声明
 
 ```ts
 // typings/index.d.ts
 declare interface Window {
-  entryUrl: any
+	entryUrl: any
 }
 ```
 
@@ -1384,12 +1417,14 @@ declare interface Window {
 
 hooks/useWxJsSdk.ts
 
-每个页面使用jssdk，都需要调用一次useWxJsSdk,然后再使用其他封装的函数
+每个页面使用 jssdk，都需要调用一次 useWxJsSdk,然后再使用其他封装的函数
 
 调用：
 
 ```ts
+
 ```
+
 [▲ 回顶部](#top)
 
 ## <span id="prettier">✅ Eslint + Prettier 统一开发规范 </span>
@@ -1402,22 +1437,22 @@ hooks/useWxJsSdk.ts
 require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
-  root: true,
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript/recommended',
-    '@vue/eslint-config-prettier'
-  ],
-  env: {
-    'vue/setup-compiler-macros': true
-  },
-  rules: {
-    'prettier/prettier': 'warn',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    'vue/multi-word-component-names': 'off'
-  }
+	root: true,
+	extends: [
+		'plugin:vue/vue3-essential',
+		'eslint:recommended',
+		'@vue/eslint-config-typescript/recommended',
+		'@vue/eslint-config-prettier'
+	],
+	env: {
+		'vue/setup-compiler-macros': true
+	},
+	rules: {
+		'prettier/prettier': 'warn',
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/no-unused-vars': 'off',
+		'vue/multi-word-component-names': 'off'
+	}
 }
 ```
 
@@ -1425,35 +1460,35 @@ module.exports = {
 
 ```js
 module.exports = {
-  // 定制格式化要求
-  overrides: [
-    {
-      files: '.prettierrc',
-      options: {
-        parser: 'json'
-      }
-    }
-  ],
-  printWidth: 100, // 一行最多 100 字符
-  tabWidth: 2, // 使用 4 个空格缩进
-  semi: false, // 行尾需要有分号
-  singleQuote: true, // 使用单引号而不是双引号
-  useTabs: false, // 用制表符而不是空格缩进行
-  quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
-  jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
-  trailingComma: 'none', // 末尾不需要逗号
-  bracketSpacing: true, // 大括号内的首尾需要空格
-  bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
-  arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
-  rangeStart: 0, // 每个文件格式化的范围是开头-结束
-  rangeEnd: Infinity, // 每个文件格式化的范围是文件的全部内容
-  requirePragma: false, // 不需要写文件开头的 @prettier
-  insertPragma: false, // 不需要自动在文件开头插入 @prettier
-  proseWrap: 'preserve', // 使用默认的折行标准 always
-  htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行
-  vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容
-  endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n
-  embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块
+	// 定制格式化要求
+	overrides: [
+		{
+			files: '.prettierrc',
+			options: {
+				parser: 'json'
+			}
+		}
+	],
+	printWidth: 100, // 一行最多 100 字符
+	tabWidth: 2, // 使用 4 个空格缩进
+	semi: false, // 行尾需要有分号
+	singleQuote: true, // 使用单引号而不是双引号
+	useTabs: false, // 用制表符而不是空格缩进行
+	quoteProps: 'as-needed', // 仅在需要时在对象属性两边添加引号
+	jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号
+	trailingComma: 'none', // 末尾不需要逗号
+	bracketSpacing: true, // 大括号内的首尾需要空格
+	bracketSameLine: false, // 将多行 HTML（HTML、JSX、Vue、Angular）元素反尖括号需要换行
+	arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号 avoid
+	rangeStart: 0, // 每个文件格式化的范围是开头-结束
+	rangeEnd: Infinity, // 每个文件格式化的范围是文件的全部内容
+	requirePragma: false, // 不需要写文件开头的 @prettier
+	insertPragma: false, // 不需要自动在文件开头插入 @prettier
+	proseWrap: 'preserve', // 使用默认的折行标准 always
+	htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行
+	vueIndentScriptAndStyle: false, //（默认值）对于 .vue 文件，不缩进 <script> 和 <style> 里的内容
+	endOfLine: 'lf', // 换行符使用 lf 在Linux和macOS以及git存储库内部通用\n
+	embeddedLanguageFormatting: 'auto' //（默认值）允许自动格式化内嵌的代码块
 }
 ```
 
@@ -1479,18 +1514,20 @@ npx husky add .husky/pre-commit "npx lint-staged" // pre-commit 执行 npx lint-
 
 ```json
 {
-  "**/*.{js,ts,tsx,jsx,vue,scss,css}": [
-    "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
-    "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
-  ]
+	"**/*.{js,ts,tsx,jsx,vue,scss,css}": [
+		"prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
+		"eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
+	]
 }
 ```
 
 [▲ 回顶部](#top)
 
 ## <span id="build">✅ 项目打包优化 </span>
-* 项目打包优化主要是把vite.config.ts中的配置提取到了专门做打包配置的文件夹
-* build 文件夹目录
+
+- 项目打包优化主要是把 vite.config.ts 中的配置提取到了专门做打包配置的文件夹
+- build 文件夹目录
+
 ```js
 - build
 - vite vite环境相关配置
@@ -1505,3 +1542,148 @@ npx husky add .husky/pre-commit "npx lint-staged" // pre-commit 执行 npx lint-
 - | - proxy.ts 代理配置
 - utils 工具函数
 ```
+
+[▲ 回顶部](#top)
+
+## <span id="jenkins">✅ Jenkins CI/CD 持续集成部署 </span>
+
+项目已配置 Jenkins Pipeline，支持自动化构建和部署。
+
+### 1. 文件说明
+
+- **Jenkinsfile**: Jenkins Pipeline 配置文件，定义了完整的 CI/CD 流程
+- **Dockerfile**: Docker 镜像构建文件（可选）
+- **deploy.sh**: 部署脚本示例（可选）
+
+### 2. Jenkins Pipeline 功能
+
+#### 构建阶段
+
+1. **代码检出**: 自动检出 Git 代码
+2. **环境准备**: 自动安装 Node.js 和 pnpm
+3. **依赖安装**: 使用 pnpm 安装项目依赖
+4. **代码检查**: ESLint 代码规范检查（可跳过）
+5. **类型检查**: TypeScript 类型检查（可跳过）
+6. **项目构建**: 根据选择的环境进行构建
+   - `development`: 开发环境构建
+   - `test`: 测试环境构建 (`pnpm run build:test`)
+   - `production`: 生产环境构建 (`pnpm run build`)
+7. **产物归档**: 自动归档构建产物
+
+#### 部署阶段（可选）
+
+- **Docker 构建**: 自动构建 Docker 镜像并推送到镜像仓库
+- **服务器部署**: 支持部署到测试服务器或生产服务器
+
+### 3. 使用方式
+
+#### 方式一：在 Jenkins 中配置 Pipeline
+
+1. 在 Jenkins 中创建新的 Pipeline 任务
+2. 选择 "Pipeline script from SCM"
+3. 配置 Git 仓库地址
+4. 指定 Jenkinsfile 路径（默认为根目录的 `Jenkinsfile`）
+5. 保存并构建
+
+#### 方式二：参数化构建
+
+构建时可以选择以下参数：
+
+- **BUILD_ENV**: 选择构建环境（development/test/production）
+- **DEPLOY_TARGET**: 选择部署目标（none/test-server/production-server）
+- **SKIP_LINT**: 是否跳过代码检查
+- **SKIP_TYPECHECK**: 是否跳过类型检查
+
+### 4. 环境变量配置
+
+在 Jenkinsfile 中配置以下环境变量（根据实际情况修改）：
+
+```groovy
+environment {
+    NODE_VERSION = '16'              // Node.js 版本
+    PNPM_VERSION = '8'               // pnpm 版本
+    BUILD_DIR = 'dist'               // 构建产物目录
+    DOCKER_REGISTRY = 'your-registry.com'  // Docker 镜像仓库
+    DOCKER_IMAGE_NAME = 'vite-vue3-h5-template'  // Docker 镜像名称
+}
+```
+
+### 5. 部署配置
+
+#### 方式一：使用 rsync 部署（推荐）
+
+在 Jenkinsfile 的 Deploy 阶段中配置：
+
+```groovy
+sh '''
+    rsync -avz --delete ${BUILD_DIR}/ user@server:/var/www/html/
+'''
+```
+
+#### 方式二：使用 scp 部署
+
+```groovy
+sh '''
+    scp -r ${BUILD_DIR}/* user@server:/var/www/html/
+'''
+```
+
+#### 方式三：使用 SSH 执行部署脚本
+
+```groovy
+sh '''
+    ssh user@server 'bash /path/to/deploy.sh'
+'''
+```
+
+### 6. Docker 部署（可选）
+
+如果使用 Docker 部署：
+
+1. 确保项目根目录存在 `Dockerfile`
+2. 在 Jenkinsfile 中配置 Docker 镜像仓库地址
+3. 构建时会自动构建并推送 Docker 镜像
+
+### 7. 通知配置（可选）
+
+在 Jenkinsfile 的 `post` 部分配置邮件通知：
+
+```groovy
+post {
+    success {
+        emailext (
+            subject: "构建成功: ${env.JOB_NAME} - ${env.BUILD_NUMBER}",
+            body: "构建环境: ${params.BUILD_ENV}\n构建编号: ${env.BUILD_NUMBER}",
+            to: "your-email@example.com"
+        )
+    }
+    failure {
+        emailext (
+            subject: "构建失败: ${env.JOB_NAME} - ${env.BUILD_NUMBER}",
+            body: "请查看构建日志",
+            to: "your-email@example.com"
+        )
+    }
+}
+```
+
+### 8. 注意事项
+
+1. **Node.js 环境**: 确保 Jenkins 服务器已安装 Node.js，或使用 nvm 管理 Node.js 版本
+2. **pnpm 安装**: Pipeline 会自动安装 pnpm，如果已全局安装可跳过
+3. **SSH 密钥**: 如果使用 SSH 部署，需要在 Jenkins 中配置 SSH 密钥
+4. **Docker 权限**: 如果使用 Docker，确保 Jenkins 用户有 Docker 执行权限
+5. **生产部署确认**: 生产环境部署需要手动确认，避免误操作
+
+### 9. 本地测试部署脚本
+
+```bash
+# 给部署脚本添加执行权限
+chmod +x deploy.sh
+
+# 测试部署（需要先构建）
+pnpm run build
+./deploy.sh production /var/www/html
+```
+
+[▲ 回顶部](#top)

@@ -19,7 +19,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 		})
 	]
 	// vite-plugin-style-import
-	vitePlugins.push(configStyleImportPlugin(isBuild))
+	const styleImportPlugin = configStyleImportPlugin(isBuild)
+	if (styleImportPlugin) {
+		vitePlugins.push(styleImportPlugin)
+	}
 
 	// unplugin-vue-components
 	vitePlugins.push(configAutoComponentsPlugin())
