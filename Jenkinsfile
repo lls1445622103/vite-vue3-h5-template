@@ -60,20 +60,38 @@ pipeline {
             steps {
                 script {
                     echo "准备构建环境..."
-                    // 安装 Node.js（如果 Jenkins 没有全局安装）
+                    // 检查并设置 Node.js 环境
                     sh '''
-                        # 检查 Node.js 是否已安装
-                        if ! command -v node &> /dev/null; then
-                            echo "Node.js 未安装，使用 nvm 安装..."
+                        # 检查 Node.js 是否已全局安装
+                        if command -v node &> /dev/null; then
+                            echo "Node.js 已全局安装"
+                            node -v
+                            npm -v
+                        else
+                            echo "Node.js 未全局安装，尝试使用 nvm..."
                             export NVM_DIR="$HOME/.nvm"
-                            [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-                            nvm install ${NODE_VERSION}
-                            nvm use ${NODE_VERSION}
+                            
+                            # 如果 nvm 存在，使用 nvm 安装 Node.js
+                            if [ -s "$NVM_DIR/nvm.sh" ]; then
+                                echo "找到 nvm，使用 nvm 安装 Node.js ${NODE_VERSION}..."
+                                # 使用 bash -c 确保所有命令在同一个 shell 中执行
+                                bash -c "
+                                    export NVM_DIR=\\$HOME/.nvm
+                                    [ -s \\$NVM_DIR/nvm.sh ] && source \\$NVM_DIR/nvm.sh
+                                    nvm install ${NODE_VERSION}
+                                    nvm use ${NODE_VERSION}
+                                    node -v
+                                    npm -v
+                                "
+                            else
+                                echo "错误: Node.js 未安装且 nvm 未找到"
+                                echo "请执行以下操作之一："
+                                echo "1. 在 Jenkins 系统配置中安装 Node.js 插件并配置 Node.js ${NODE_VERSION}"
+                                echo "2. 在服务器上全局安装 Node.js ${NODE_VERSION}"
+                                echo "3. 安装 nvm: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash"
+                                exit 1
+                            fi
                         fi
-                        
-                        # 显示 Node.js 和 npm 版本
-                        node -v
-                        npm -v
                         
                         # 安装 pnpm（如果未安装）
                         if ! command -v pnpm &> /dev/null; then
@@ -82,7 +100,7 @@ pipeline {
                         fi
                         
                         # 显示 pnpm 版本
-                        pnpm -v
+                        pnpm -v || (echo "pnpm 安装失败" && exit 1)
                     '''
                 }
             }
@@ -94,6 +112,10 @@ pipeline {
                 script {
                     echo "安装项目依赖..."
                     sh '''
+                        # 加载 Node.js 环境（如果使用 nvm）
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" || true
+                        
                         # 使用 pnpm 安装依赖
                         pnpm install --frozen-lockfile
                         
@@ -113,6 +135,10 @@ pipeline {
                 script {
                     echo "执行代码检查..."
                     sh '''
+                        # 加载 Node.js 环境（如果使用 nvm）
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" || true
+                        
                         pnpm run lint || {
                             echo "代码检查失败，请修复后重试"
                             exit 1
@@ -131,6 +157,10 @@ pipeline {
                 script {
                     echo "执行 TypeScript 类型检查..."
                     sh '''
+                        # 加载 Node.js 环境（如果使用 nvm）
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" || true
+                        
                         pnpm run typecheck || {
                             echo "类型检查失败，请修复后重试"
                             exit 1
@@ -146,6 +176,10 @@ pipeline {
                 script {
                     echo "开始构建项目，环境: ${params.BUILD_ENV}"
                     sh '''
+                        # 加载 Node.js 环境（如果使用 nvm）
+                        export NVM_DIR="$HOME/.nvm"
+                        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" || true
+                        
                         # 根据环境选择构建命令
                         if [ "${BUILD_ENV}" == "test" ]; then
                             echo "构建测试环境..."
