@@ -66,7 +66,7 @@ pipeline {
                         if ! command -v node &> /dev/null; then
                             echo "Node.js 未安装，使用 nvm 安装..."
                             export NVM_DIR="$HOME/.nvm"
-                            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                            [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
                             nvm install ${NODE_VERSION}
                             nvm use ${NODE_VERSION}
                         fi
