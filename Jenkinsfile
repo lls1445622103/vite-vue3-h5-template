@@ -62,8 +62,8 @@ pipeline {
                     echo "准备构建环境..."
                     // 检查并设置 Node.js 环境
                     sh '''
-                        # 检查 Node.js 是否已全局安装
-                        if command -v node &> /dev/null; then
+                        # 检查 Node.js 是否已全局安装且可执行
+                        if command -v node &> /dev/null && node -v &> /dev/null; then
                             echo "Node.js 已全局安装"
                             node -v
                             npm -v
@@ -82,7 +82,13 @@ pipeline {
                                     nvm use ${NODE_VERSION}
                                     node -v
                                     npm -v
-                                "
+                                " || {
+                                    echo "nvm 安装 Node.js 失败"
+                                    exit 1
+                                }
+                                # 加载 nvm 环境到当前 shell
+                                export NVM_DIR="$HOME/.nvm"
+                                [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
                             else
                                 echo "错误: Node.js 未安装且 nvm 未找到"
                                 echo "请执行以下操作之一："
@@ -93,14 +99,23 @@ pipeline {
                             fi
                         fi
                         
+                        # 再次确认 Node.js 可用
+                        if ! command -v node &> /dev/null || ! node -v &> /dev/null; then
+                            echo "错误: Node.js 不可用"
+                            exit 1
+                        fi
+                        
                         # 安装 pnpm（如果未安装）
                         if ! command -v pnpm &> /dev/null; then
                             echo "安装 pnpm..."
-                            npm install -g pnpm@${PNPM_VERSION}
+                            npm install -g pnpm@${PNPM_VERSION} || {
+                                echo "pnpm 安装失败"
+                                exit 1
+                            }
                         fi
                         
                         # 显示 pnpm 版本
-                        pnpm -v || (echo "pnpm 安装失败" && exit 1)
+                        pnpm -v || (echo "pnpm 不可用" && exit 1)
                     '''
                 }
             }
